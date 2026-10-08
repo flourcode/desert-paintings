@@ -40,6 +40,6 @@
   // Someone copying the email address by hand counts as interest too
   document.addEventListener("copy", function () {
     var sel = String(window.getSelection());
-    if (sel.indexOf("@desertpaintings.com") > -1) window.gtag("event", "email_copy", { page_path: location.pathname, method: "select" });
+    if (sel.indexOf("mark.flournoy@gmail.com") > -1) window.gtag("event", "email_copy", { page_path: location.pathname, method: "select" });
   });
 })();
