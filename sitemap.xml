@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url><loc>https://desertpaintings.com/</loc><lastmod>2026-10-08</lastmod><priority>1.0</priority></url>
+  <url><loc>https://desertpaintings.com/paintings/</loc><lastmod>2026-10-08</lastmod><priority>0.9</priority></url>
+  <url><loc>https://desertpaintings.com/roadrunner-crossing/</loc><lastmod>2026-10-08</lastmod><priority>0.8</priority><image:image><image:loc>https://desertpaintings.com/images/roadrunner-crossing-watercolor.jpg</image:loc></image:image></url>
+  <url><loc>https://desertpaintings.com/san-jacinto-purple-sky/</loc><lastmod>2026-10-08</lastmod><priority>0.8</priority><image:image><image:loc>https://desertpaintings.com/images/san-jacinto-purple-sky-watercolor.jpg</image:loc></image:image></url>
+  <url><loc>https://desertpaintings.com/desert-sun-over-the-dunes/</loc><lastmod>2026-10-08</lastmod><priority>0.8</priority><image:image><image:loc>https://desertpaintings.com/images/desert-sun-over-the-dunes-watercolor.jpg</image:loc></image:image></url>
+  <url><loc>https://desertpaintings.com/monsoon-storm-san-jacinto/</loc><lastmod>2026-10-08</lastmod><priority>0.8</priority><image:image><image:loc>https://desertpaintings.com/images/monsoon-storm-san-jacinto-watercolor.jpg</image:loc></image:image></url>
+  <url><loc>https://desertpaintings.com/desert-wildflowers/</loc><lastmod>2026-10-08</lastmod><priority>0.8</priority><image:image><image:loc>https://desertpaintings.com/images/desert-wildflowers-watercolor.jpg</image:loc></image:image></url>
+  <url><loc>https://desertpaintings.com/summer-cloud-palm-springs/</loc><lastmod>2026-10-08</lastmod><priority>0.8</priority><image:image><image:loc>https://desertpaintings.com/images/summer-cloud-palm-springs-watercolor.jpg</image:loc></image:image></url>
+  <url><loc>https://desertpaintings.com/clouds-over-the-san-jacintos/</loc><lastmod>2026-10-08</lastmod><priority>0.8</priority><image:image><image:loc>https://desertpaintings.com/images/clouds-over-the-san-jacintos-watercolor.jpg</image:loc></image:image></url>
+  <url><loc>https://desertpaintings.com/salton-sea-still-morning/</loc><lastmod>2026-10-08</lastmod><priority>0.8</priority><image:image><image:loc>https://desertpaintings.com/images/salton-sea-still-morning-watercolor.jpg</image:loc></image:image></url>
+  <url><loc>https://desertpaintings.com/cloud-field-san-jacinto-foothills/</loc><lastmod>2026-10-08</lastmod><priority>0.8</priority><image:image><image:loc>https://desertpaintings.com/images/cloud-field-san-jacinto-foothills-watercolor.jpg</image:loc></image:image></url>
+  <url><loc>https://desertpaintings.com/about/</loc><lastmod>2026-10-08</lastmod><priority>0.6</priority></url>
+  <url><loc>https://desertpaintings.com/videos/</loc><lastmod>2026-10-08</lastmod><priority>0.4</priority></url>
+</urlset>
