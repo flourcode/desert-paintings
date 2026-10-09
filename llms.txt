@@ -6,6 +6,7 @@
 
 - [Home](https://desertpaintings.com/): featured painting and the full index
 - [Paintings](https://desertpaintings.com/paintings/): all paintings, numbered in the order they were made
+- [Reference photos](https://desertpaintings.com/reference-photos/): free CC0 photos of Palm Springs skies, mountains, plants and wildlife for painters to download and use
 - [About](https://desertpaintings.com/about/): about Mark, contact, and common questions
 - [Videos](https://desertpaintings.com/videos/): painting videos on YouTube (@desertpaintings)
 

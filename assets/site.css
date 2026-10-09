@@ -218,3 +218,45 @@ a, button { -webkit-tap-highlight-color: transparent; }
   footer.site { padding-block: 14px 32px; }
   footer .bar { flex-direction: column; align-items: flex-start; gap: 6px; }
 }
+
+/* Reference photos */
+.license { font-size: 14px; color: var(--muted); }
+.jump { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 22px; font-size: 14px; font-weight: 500; }
+.jump a { border-bottom: 1px solid var(--rule); padding-bottom: 1px; }
+.jump a:hover { border-bottom-color: var(--fg); }
+.photo-sec { scroll-margin-top: 16px; }
+.photo-sec .sect-head h2 { margin: 0; }
+.index.photos { padding-bottom: 72px; }
+.card.photo { margin: 0; }
+.card.photo .frame { display: block; }
+.card.photo img.art { outline: 0; }
+.card.photo .used { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--rule); }
+.card.photo .dl { margin-top: 8px; justify-self: start; font-size: 13px; font-weight: 600; border-bottom: 1px solid var(--fg); padding-bottom: 1px; }
+.card.photo .dl .meta { font-weight: 500; margin-left: 4px; }
+.card.photo .dl:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.card.photo:target .title { text-decoration: underline; text-underline-offset: 3px; }
+.ref { margin: 36px auto 0; max-width: 360px; }
+.ref img { display: block; width: 100%; height: auto; }
+.ref figcaption { margin-top: 8px; font-size: 13px; color: var(--muted); }
+.ref figcaption a { color: var(--fg); border-bottom: 1px solid var(--rule); }
+@media (max-width: 560px) {
+  .card.photo .dl { padding-block: 8px 2px; }
+  .jump { gap: 4px 16px; }
+  .jump a { padding-block: 8px 2px; }
+  nav.primary a { padding: 12px 6px; font-size: 13.5px; }
+  .wordmark { font-size: 12px; letter-spacing: .08em; }
+}
+.card.photo .frame { position: relative; aspect-ratio: 5 / 4; border-top: 1px solid var(--rule); }
+.card.photo .frame img.art { position: absolute; inset: 6% 0; width: 100%; height: 88%; max-width: none; max-height: none; margin: 0; object-fit: contain; }
+.ref figcaption { display: block; line-height: 1.5; }
+.ref figcaption .label { margin-right: 6px; }
+@media (max-width: 560px) {
+  .card.photo .frame { aspect-ratio: 1 / 1; }
+  .card.photo .frame img.art { inset: 4% 0; height: 92%; }
+  .bar { flex-wrap: wrap; }
+  nav.primary { margin-left: -6px; margin-right: 0; }
+}
+@media (max-width: 420px) {
+  header.site .bar { flex-direction: column; align-items: flex-start; gap: 0; }
+  .wordmark { padding-block: 8px 0; font-size: 13px; }
+}
