@@ -259,3 +259,5 @@ a, button { -webkit-tap-highlight-color: transparent; }
   header.site .bar { flex-direction: column; align-items: flex-start; gap: 0; }
   .wordmark { padding-block: 8px 0; font-size: 13px; }
 }
+.inline { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: var(--muted); }
+.inline:hover { text-decoration-color: var(--fg); }
