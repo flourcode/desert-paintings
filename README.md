@@ -2,60 +2,71 @@
 
 Small watercolors from Palm Springs and the surrounding desert, by Mark.
 
-This is a plain static website: HTML, one stylesheet, two small scripts, and images. There is no build step, so AWS Amplify serves the files exactly as they are.
+## How this works
 
-## What's in here
+You keep **one full-size image per painting or photo** in the `source` folder. When you change anything on GitHub, Amplify rebuilds the whole site automatically, in about two minutes. It makes every image size, the share previews, the sitemap, and the search data. You never edit the website files themselves.
 
-| Path | What it is |
+```
+source/
+  paintings/        one image per painting, named <slug>.jpg
+  photos/           one image per reference photo, named <slug>.jpg
+  paintings.json    titles, sizes, dates, places, order on the site
+  photos.json       reference photo titles, places, sections
+  brand/            your portrait and the roadrunner icon
+  build.py          the script Amplify runs (no need to touch it)
+  site.css, site.js, analytics.js
+amplify.yml         tells Amplify to run the build
+customHttp.yml      caching and security settings
+```
+
+## Replace a painting with a new scan
+
+1. Scan the painting at 300–600 dpi and save it as a **JPG under 25 MB**. Crop it to the edge of the card, or leave a little margin; either works.
+2. Name it exactly like the file it replaces, for example `roadrunner-crossing.jpg`. The current names are below.
+3. On GitHub, open `source/paintings`, click **Add file → Upload files**, drop in the new file, and click **Commit changes**. GitHub replaces the old file because the name matches.
+4. Wait about two minutes. The site updates, and visitors see the new image right away.
+
+You can replace several at once. A reference photo works the same way, in `source/photos`.
+
+| Painting | File in source/paintings |
 |---|---|
-| `index.html` | Home page |
-| `paintings/` | The full index, with place filters |
-| `roadrunner-crossing/` and the other painting folders | One page per painting |
-| `about/`, `videos/` | About (with contact and common questions) and Videos |
-| `404.html` | Page shown for a missing address |
-| `images/` | Paintings (full size and 800px versions) and social share images in `images/og/` |
-| `assets/site.css`, `assets/site.js` | Styles, place filters and the copy-email button |
-| `assets/analytics.js` | Google Analytics. Does nothing until you add your ID |
-| `sitemap.xml`, `robots.txt` | For search engines |
-| `llms.txt` | Plain-text summary of the site for AI answer engines |
-| `favicon.ico`, `*.png`, `site.webmanifest` | Browser and phone icons |
-| `amplify.yml`, `customHttp.yml` | Amplify settings: no build, security and caching headers |
+| Desert Wildflowers | desert-wildflowers.jpg |
+| Summer Cloud, Palm Springs | summer-cloud-palm-springs.jpg |
+| Hazey Day | hazey-day.jpg |
+| Roadrunner Crossing | roadrunner-crossing.jpg |
+| San Jacinto Purple Sky | san-jacinto-purple-sky.jpg |
+| Clouds Over the San Jacintos | clouds-over-the-san-jacintos.jpg |
+| Salton Sea, Still Morning | salton-sea-still-morning.jpg |
+| Watchtower | watchtower.jpg |
+| Rain, Rain | rain-rain.jpg |
+| Desert Sun Over the Dunes | desert-sun-over-the-dunes.jpg |
+| Monsoon Storm, San Jacinto | monsoon-storm-san-jacinto.jpg |
+| Cloud Field Over the Foothills | cloud-field-san-jacinto-foothills.jpg |
 
-## Put it on GitHub
+## Small text changes
 
-1. Create a new repository on GitHub (for example `desertpaintings`).
-2. Upload everything in this folder to the root of the repository, keeping the folders as they are. Using the GitHub website: **Add file → Upload files**, drag the contents of this folder in, then **Commit changes**.
+Titles, places, dates, notes and "Sold" live in `source/paintings.json`. On GitHub, open the file, click the pencil, edit the text between the quotes, and commit. Keep the quotes and commas as they are. Set `"available": false` to show a painting as Sold. Add a sentence in `"note"` and it appears on that painting's page.
 
-## Connect AWS Amplify
+## Adding new paintings
 
-1. In the AWS console, open **Amplify** → **Create new app** → **GitHub**, and pick this repository and the `main` branch.
-2. Amplify reads `amplify.yml` and sees there is no build. Accept the defaults and deploy.
-3. **Hosting → Custom domains → Add domain** → `desertpaintings.com`. Let Amplify set up both `desertpaintings.com` and `www`, with `www` redirecting to `desertpaintings.com`. If the domain is in Route 53, Amplify adds the DNS records for you. Otherwise it shows you records to add at your registrar.
-4. **Hosting → Rewrites and redirects → Manage redirects → Open text editor**, and paste:
+Send the photo or scan and the details to Claude. It adds the entry to `paintings.json` and the image to `source/paintings`, and gives you the files to upload.
+
+## If a build fails
+
+The site stays exactly as it was; nothing breaks for visitors. In Amplify, open the failed build and read the last lines of the log. The most common cause is an image name that doesn't match. The log says which file is missing, for example `Missing image: source/paintings/rain-rain.jpg`.
+
+## Google Analytics
+
+The ID is in `source/analytics.js`. Besides page views, it records email copies, YouTube clicks, filter use, and shares (`share` events, with the method: share sheet, copy link, or Pinterest).
+
+## Amplify redirect rules
+
+These are set in the Amplify console under **Hosting → Rewrites and redirects**:
 
 ```json
 [
-  { "source": "https://www.desertpaintings.com", "target": "https://desertpaintings.com", "status": "301", "condition": null },
-  { "source": "/<*>", "target": "/404.html", "status": "404", "condition": null }
+  { "source": "https://www.desertpaintings.com/<*>", "status": "301", "target": "https://desertpaintings.com/<*>" },
+  { "source": "https://www.desertpaintings.com", "status": "301", "target": "https://desertpaintings.com" },
+  { "source": "/<*>", "status": "404", "target": "/404.html" }
 ]
 ```
-
-The first rule sends `www` to the main address. The second shows the 404 page for any address that doesn't exist.
-
-## Turn on Google Analytics
-
-1. In Google Analytics, create a GA4 property with a web stream for `https://desertpaintings.com`.
-2. Copy the Measurement ID (`G-XXXXXXXXXX`).
-3. Open `assets/analytics.js` on GitHub, click the pencil to edit, paste the ID between the quotes on the line `var GA_MEASUREMENT_ID = "";`, and commit.
-
-Amplify redeploys within a minute or two. Besides page views, it records email copies, YouTube link clicks, and use of the place filters.
-
-## After it's live
-
-1. **Google Search Console**: add `https://desertpaintings.com` as a property, verify it (the DNS option is easiest), then submit `https://desertpaintings.com/sitemap.xml`.
-2. **Bing Webmaster Tools**: import the property from Search Console and submit the same sitemap. Bing's index also feeds several AI answer engines.
-3. **YouTube**: in the channel's About section, link to `https://desertpaintings.com`. The site already links back to the channel.
-
-## Changing things later
-
-Small text fixes can be made directly in the HTML files on GitHub. For new paintings, notes, prices or sold originals, ask Claude to rebuild the site, so every page, the sitemap and the structured data stay in step.

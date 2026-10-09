@@ -1,0 +1,144 @@
+{
+  "_how_to": "Each photo needs an image at source/photos/<slug>.jpg. 'painting' links a photo to the painting it inspired (use the painting's slug).",
+  "sections": [
+    {
+      "key": "sunsets",
+      "label": "Sunsets and evening sky"
+    },
+    {
+      "key": "clouds",
+      "label": "Clouds and mountains"
+    },
+    {
+      "key": "plants",
+      "label": "Desert plants and flowers"
+    },
+    {
+      "key": "wildlife",
+      "label": "Wildlife"
+    }
+  ],
+  "og_photo": "storm-light-over-san-jacinto",
+  "photos": [
+    {
+      "slug": "downtown-palm-springs-dusk",
+      "title": "Downtown Palm Springs at dusk",
+      "place": "Palm Canyon Drive, Palm Springs",
+      "sec": "sunsets",
+      "alt": "Orange dusk sky over the rooftops and palms of downtown Palm Springs, with layered blue mountains on the horizon"
+    },
+    {
+      "slug": "pink-clouds-and-palm",
+      "title": "Pink clouds and a palm",
+      "place": "Palm Springs",
+      "sec": "sunsets",
+      "alt": "Coral and grey sunset clouds filling the sky, with a windblown fan palm silhouetted on the left"
+    },
+    {
+      "slug": "cirrus-over-sunrise-parkway",
+      "title": "Cirrus over Sunrise Parkway",
+      "place": "Sunrise Parkway, Palm Springs",
+      "sec": "sunsets",
+      "alt": "Feathery peach cirrus clouds fanning across a blue evening sky above Sunrise Parkway and the San Jacinto Mountains"
+    },
+    {
+      "slug": "tall-palm-pink-cirrus",
+      "title": "Tall palm, pink cirrus",
+      "place": "Palm Springs",
+      "sec": "sunsets",
+      "alt": "A single very tall palm silhouetted against wispy pink cirrus clouds in a blue sky"
+    },
+    {
+      "slug": "storm-light-over-san-jacinto",
+      "title": "Storm light over San Jacinto",
+      "place": "San Jacinto Mountains",
+      "sec": "sunsets",
+      "alt": "Dark storm clouds lit coral and pink at sunset over the black silhouette of Mount San Jacinto"
+    },
+    {
+      "slug": "palms-under-a-burning-sky",
+      "title": "Palms under a burning sky",
+      "place": "Downtown Palm Springs",
+      "sec": "sunsets",
+      "alt": "Tall palms silhouetted against a sky of orange and lavender clouds, with dark mountains behind and lights below"
+    },
+    {
+      "slug": "windmills-at-sunset",
+      "title": "Windmills at sunset",
+      "place": "San Gorgonio Pass",
+      "sec": "sunsets",
+      "alt": "Golden sunset behind a mountain ridge, with puffy grey clouds, a small bare tree, and wind turbines on the horizon"
+    },
+    {
+      "slug": "palms-and-building-clouds",
+      "title": "Palms and building clouds",
+      "place": "Palm Springs",
+      "sec": "clouds",
+      "alt": "Green fan palms in front of towering white cumulus clouds against a clear blue sky"
+    },
+    {
+      "slug": "pines-and-a-summer-cloud",
+      "title": "Pines and a summer cloud",
+      "place": "San Jacinto high country",
+      "sec": "clouds",
+      "alt": "Tall pines framing a single white cumulus cloud in a deep blue sky, with a rocky peak behind"
+    },
+    {
+      "slug": "egret-below-the-san-jacintos",
+      "title": "Egret below the San Jacintos",
+      "place": "San Jacinto Mountains",
+      "sec": "clouds",
+      "alt": "A white egret flying low in front of sunlit, rocky San Jacinto mountain slopes, with olive trees in front"
+    },
+    {
+      "slug": "joshua-tree-blue-sky",
+      "title": "Joshua tree, blue sky",
+      "place": "Joshua Tree National Park",
+      "sec": "plants",
+      "alt": "A shaggy Joshua tree with spiky green heads against a deep blue sky with white clouds"
+    },
+    {
+      "slug": "yucca-silhouettes-at-sunset",
+      "title": "Yucca silhouettes at sunset",
+      "place": null,
+      "sec": "plants",
+      "alt": "Dark silhouettes of tall yuccas and palm fronds against a glowing orange sunset sky"
+    },
+    {
+      "slug": "cactus-nursery",
+      "title": "Cactus nursery",
+      "place": null,
+      "sec": "plants",
+      "alt": "Rows of tall green columnar cactus reaching into a bright blue sky with white clouds"
+    },
+    {
+      "slug": "bougainvillea",
+      "title": "Bougainvillea",
+      "place": "Palm Springs",
+      "sec": "plants",
+      "alt": "Close-up of pink and peach bougainvillea bracts and green leaves against a grey stucco wall"
+    },
+    {
+      "slug": "roadrunner-on-a-wall",
+      "title": "Roadrunner on a wall",
+      "place": "Sunrise Parkway, Palm Springs",
+      "sec": "wildlife",
+      "alt": "A greater roadrunner mid-stride along the top of a pale wall, crest raised and beak open",
+      "painting": "roadrunner-crossing"
+    },
+    {
+      "slug": "roadrunner-on-a-utility-box",
+      "title": "Roadrunner on a utility box",
+      "place": "Palm Springs",
+      "sec": "wildlife",
+      "alt": "A greater roadrunner standing on a green utility box, with desert landscaping and red yucca blooms behind"
+    },
+    {
+      "slug": "lizard-on-stucco",
+      "title": "Lizard on stucco",
+      "place": "Palm Springs",
+      "sec": "wildlife",
+      "alt": "A grey-brown spiny lizard flattened against a textured stucco wall"
+    }
+  ]
+}

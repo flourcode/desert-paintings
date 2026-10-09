@@ -1,0 +1,270 @@
+{
+  "_how_to": "Paintings are numbered in the order listed here (oldest first). Each one needs an image at source/paintings/<slug>.jpg. 'grid' is the order on the Paintings page; 'home' is the order on the home page (the featured painting is shown large at the top).",
+  "featured": "roadrunner-crossing",
+  "grid": [
+    "roadrunner-crossing",
+    "san-jacinto-purple-sky",
+    "desert-sun-over-the-dunes",
+    "monsoon-storm-san-jacinto",
+    "rain-rain",
+    "summer-cloud-palm-springs",
+    "clouds-over-the-san-jacintos",
+    "cloud-field-san-jacinto-foothills",
+    "hazey-day",
+    "watchtower",
+    "desert-wildflowers",
+    "salton-sea-still-morning"
+  ],
+  "home": [
+    "san-jacinto-purple-sky",
+    "desert-sun-over-the-dunes",
+    "watchtower",
+    "monsoon-storm-san-jacinto",
+    "rain-rain",
+    "summer-cloud-palm-springs",
+    "clouds-over-the-san-jacintos",
+    "desert-wildflowers",
+    "salton-sea-still-morning"
+  ],
+  "filters": [
+    {
+      "tag": "all",
+      "label": "All"
+    },
+    {
+      "tag": "san-jacinto",
+      "label": "San Jacinto"
+    },
+    {
+      "tag": "palm-springs",
+      "label": "Palm Springs"
+    },
+    {
+      "tag": "salton-sea",
+      "label": "Salton Sea"
+    },
+    {
+      "tag": "imagined",
+      "label": "From imagination"
+    }
+  ],
+  "paintings": [
+    {
+      "slug": "desert-wildflowers",
+      "title": "Desert Wildflowers",
+      "w": 6,
+      "h": 4,
+      "date": "2025-08",
+      "place": "From imagination",
+      "geo": null,
+      "tags": [
+        "imagined"
+      ],
+      "seo": "Desert Wildflowers in Bloom · Original Watercolor",
+      "subject": "ragged orange-gold blooms above green leaves against a pale blue sky, outlined in ink",
+      "alt": "Watercolor of ragged orange-gold blooms above green leaves against a pale blue sky, outlined in ink",
+      "available": true,
+      "note": "",
+      "video": ""
+    },
+    {
+      "slug": "summer-cloud-palm-springs",
+      "title": "Summer Cloud, Palm Springs",
+      "w": 4,
+      "h": 6,
+      "date": "2026-07",
+      "place": "Palm Springs",
+      "geo": "Palm Springs, California",
+      "tags": [
+        "palm-springs"
+      ],
+      "seo": "Summer Cloud Over Palm Springs · Desert Sky Watercolor",
+      "subject": "a tall white summer cloud against a deep blue sky over Palm Springs",
+      "alt": "Watercolor of a tall white summer cloud against a deep blue sky over Palm Springs",
+      "available": true,
+      "note": "",
+      "video": ""
+    },
+    {
+      "slug": "hazey-day",
+      "title": "Hazey Day",
+      "w": 4,
+      "h": 6,
+      "date": "2026-07",
+      "place": "From imagination",
+      "geo": null,
+      "tags": [
+        "imagined"
+      ],
+      "seo": "Hazey Day · Soft Desert Sky Watercolor",
+      "subject": "a soft, hazy blue sky with outlined clouds over faint ridge lines",
+      "alt": "Pale blue watercolor of outlined clouds and faint pencil ridge lines on a hazy day",
+      "available": true,
+      "note": "",
+      "video": ""
+    },
+    {
+      "slug": "roadrunner-crossing",
+      "title": "Roadrunner Crossing",
+      "w": 7,
+      "h": 5,
+      "date": "2026-08",
+      "place": "Sunrise Parkway, Palm Springs",
+      "geo": "Sunrise Parkway, Palm Springs, California",
+      "tags": [
+        "palm-springs"
+      ],
+      "seo": "Roadrunner Crossing · Original Roadrunner Watercolor, Palm Springs",
+      "subject": "a greater roadrunner mid-stride on Sunrise Parkway in Palm Springs",
+      "alt": "Watercolor of a greater roadrunner mid-stride on pale sand, crest raised and beak open, with a pink patch behind the eye",
+      "available": true,
+      "note": "",
+      "video": ""
+    },
+    {
+      "slug": "san-jacinto-purple-sky",
+      "title": "San Jacinto Purple Sky",
+      "w": 4,
+      "h": 6,
+      "date": "2026-08",
+      "place": "San Jacinto Mountains, Palm Springs",
+      "geo": "Mount San Jacinto, California",
+      "tags": [
+        "san-jacinto",
+        "palm-springs"
+      ],
+      "seo": "San Jacinto Purple Sky · Mount San Jacinto Watercolor, Palm Springs",
+      "subject": "a towering cloud with purple shadows over Mount San Jacinto above Palm Springs",
+      "alt": "Watercolor of a towering cloud with purple shadows above the brown ridges of Mount San Jacinto",
+      "available": true,
+      "note": "",
+      "video": ""
+    },
+    {
+      "slug": "clouds-over-the-san-jacintos",
+      "title": "Clouds Over the San Jacintos",
+      "w": 6,
+      "h": 4,
+      "date": "2026-08",
+      "place": "San Jacinto Mountains",
+      "geo": "San Jacinto Mountains, California",
+      "tags": [
+        "san-jacinto"
+      ],
+      "seo": "Clouds Over the San Jacinto Mountains · Desert Landscape Watercolor",
+      "subject": "pencil-hatched white clouds over the jagged San Jacinto Mountains",
+      "alt": "Watercolor of pencil-hatched white clouds over a jagged brown line of the San Jacinto Mountains",
+      "available": true,
+      "note": "",
+      "video": ""
+    },
+    {
+      "slug": "salton-sea-still-morning",
+      "title": "Salton Sea, Still Morning",
+      "w": 4,
+      "h": 6,
+      "date": "2026-08",
+      "place": "Salton Sea",
+      "geo": "Salton Sea, California",
+      "tags": [
+        "salton-sea"
+      ],
+      "seo": "Salton Sea, Still Morning · Salton Sea Watercolor",
+      "subject": "the Salton Sea on a still morning, pale blue water under a hazy sky",
+      "alt": "Quiet watercolor of the Salton Sea, pale blue water under a hazy cream sky",
+      "available": true,
+      "note": "",
+      "video": ""
+    },
+    {
+      "slug": "watchtower",
+      "title": "Watchtower",
+      "w": 4,
+      "h": 6,
+      "date": "2026-08",
+      "place": "From imagination",
+      "geo": null,
+      "tags": [
+        "imagined"
+      ],
+      "seo": "Watchtower · Ink and Watercolor Tower Painting",
+      "subject": "an imagined tall weathered stone watchtower on rocks under a blue sky with streaming white clouds",
+      "alt": "Ink and watercolor of a tall weathered watchtower rising from rocks against a blue sky with ribbons of white cloud",
+      "available": true,
+      "note": "",
+      "video": ""
+    },
+    {
+      "slug": "rain-rain",
+      "title": "Rain, Rain",
+      "w": 6,
+      "h": 4,
+      "date": "2026-08",
+      "place": "From imagination",
+      "geo": null,
+      "tags": [
+        "imagined"
+      ],
+      "seo": "Rain, Rain · Desert Rainstorm Watercolor",
+      "subject": "an imagined rainstorm, pencil-lined rain falling from grey and white clouds through a blue sky",
+      "alt": "Watercolor of rain drawn as fine vertical pencil lines falling from grey and white clouds across a blue sky over flat ground",
+      "available": true,
+      "note": "",
+      "video": ""
+    },
+    {
+      "slug": "desert-sun-over-the-dunes",
+      "title": "Desert Sun Over the Dunes",
+      "w": 4,
+      "h": 6,
+      "date": "2026-09",
+      "place": "From imagination",
+      "geo": null,
+      "tags": [
+        "imagined"
+      ],
+      "seo": "Desert Sun Over the Dunes · Minimal Desert Watercolor",
+      "subject": "a mottled orange desert sun above a simple brown dune",
+      "alt": "Minimal watercolor of a mottled orange sun above a flat brown dune shape",
+      "available": true,
+      "note": "",
+      "video": ""
+    },
+    {
+      "slug": "monsoon-storm-san-jacinto",
+      "title": "Monsoon Storm, San Jacinto",
+      "w": 4,
+      "h": 6,
+      "date": "2026-09",
+      "place": "San Jacinto Mountains",
+      "geo": "San Jacinto Mountains, California",
+      "tags": [
+        "san-jacinto"
+      ],
+      "seo": "Monsoon Storm Over the San Jacinto Mountains · Palm Springs Watercolor",
+      "subject": "grey monsoon storm clouds over the San Jacinto Mountains",
+      "alt": "Grey monochrome watercolor of storm clouds over the San Jacinto Mountains",
+      "available": true,
+      "note": "",
+      "video": ""
+    },
+    {
+      "slug": "cloud-field-san-jacinto-foothills",
+      "title": "Cloud Field Over the Foothills",
+      "w": 4,
+      "h": 6,
+      "date": "2026-09",
+      "place": "San Jacinto foothills",
+      "geo": "San Jacinto Mountains, California",
+      "tags": [
+        "san-jacinto"
+      ],
+      "seo": "Cloud Field Over the San Jacinto Foothills · Coachella Valley Watercolor",
+      "subject": "a field of small clouds over the San Jacinto foothills and the golden Coachella Valley floor",
+      "alt": "Watercolor of many small outlined clouds over a green-brown foothill and a band of golden desert floor",
+      "available": true,
+      "note": "",
+      "video": ""
+    }
+  ]
+}
