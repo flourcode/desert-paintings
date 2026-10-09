@@ -262,9 +262,6 @@ def write(path, content):
     open(full, "w").write(content)
 
 BOOKS = [
-    dict(title="Start to Paint with Watercolours", by="Arnold Lowrey", pub="Search Press", isbn="9781782213277",
-         url="https://penguinrandomhouse.com/books/573911/start-to-paint-with-watercolours-by-arnold-lowrey",
-         why="A beginner's book: materials, first washes, and step-by-step demonstrations."),
     dict(title="The Laws Guide to Nature Drawing and Journaling", by="John Muir Laws", pub="Heyday", isbn="9781597143158",
          url="https://heydaybooks.com/?p=14698",
          why="How to look closely at birds, plants and landscapes, and get them down on paper."),
@@ -284,7 +281,7 @@ VIDEOS_WATCHED = [
 
 FAQ = [
     ("Are the original paintings for sale?", f"Yes. Each painting's page says whether the original is available. Write to {EMAIL} to ask about one."),
-    ("How are you learning watercolor?", "From books and videos: Start to Paint with Watercolours by Arnold Lowrey (Search Press), The Laws Guide to Nature Drawing and Journaling by John Muir Laws (Heyday), Bob Ross, and beginner lessons on YouTube, including videos with Rajiv Surendra and his teacher Marcelo Daldoce."),
+    ("How are you learning watercolor?", "From books and videos: The Laws Guide to Nature Drawing and Journaling by John Muir Laws (Heyday), Bob Ross, and beginner lessons on YouTube, including videos with Rajiv Surendra and his teacher Marcelo Daldoce."),
     ("Can I paint from your photos?", "Yes. The reference photos page has free photos of Palm Springs skies, mountains, plants and wildlife, dedicated to the public domain (CC0). Download them and use them for anything; credit is appreciated but not required."),
 ]
 
@@ -430,14 +427,14 @@ def build_pages():
     faq_html = "\n".join(f"        <dt>{e(q)}</dt><dd>{e(a)}</dd>" for q, a in FAQ)
     body = f"""    <section class="page-head"><span class="label muted">About</span><h1>Mark, Palm Springs</h1></section>
     <section class="grid about">
-      <p class="statement">Hi, I'm Mark. I recently retired and moved back to Southern California. I love painting desert landscapes, clouds, mountains, sunsets and sunrises, but especially clouds and mountains.</p>
+      <p class="statement">Hi, I'm Mark. I recently retired and moved back to Southern California. I'm avoiding pickleball, so I decided to try painting again after about a 50-year break.</p>
       <div class="body">
-        <p>I hadn't painted since I was probably nine years old, but it turns out it's a little like riding a bicycle. You remember more than you think. Sometimes you still crash into the bushes.</p>
-        <p>Anyway, I love painting. It's 30 minutes of quiet where everything else shuts off for a while.</p>
-        <p>Most of what I paint comes from memory or imagination, although about half my photo library seems to be clouds. They never come out on paper quite the way they felt when I saw them, but painting brings some of that back.</p>
-        <p>I think I have less than $100 invested in paints and brushes, and I'm sure I'm doing plenty of things wrong, so I wouldn't copy my technique. But it's a great hobby, the cleanup is easy, and I keep coming back to it.</p>
-        <p>I hope you enjoy <a class="inline" href="/paintings/">the paintings</a>. Feel free to use anything in my <a class="inline" href="/reference-photos/">reference library</a> for your own work.</p>
-        <p>And if you have suggestions for what I should paint next, <a class="inline" href="mailto:{EMAIL}?subject=Something%20to%20paint">let me know</a>. Just as long as it's clouds and mountains. :)</p>
+        <p>I live at the base of the San Jacinto Mountains, so there's plenty of inspiration. I'm not good enough to paint portraits, so I mostly paint mountains, clouds and roadrunners. I'm hoping to get a good picture of a coyote this fall.</p>
+        <p>Most of what I paint comes from a photo I took, or my memory of taking it. About half my photo library seems to be clouds. They never look the way they did when I took them, but painting helps bring a little of that feeling back.</p>
+        <p>My first love is sketching, so I usually start with a pencil sketch on dry paper, then do a big wash and start painting. The watercolors don't seem to care about my lines, though. I use basic watercolors and a few brushes, flats and large rounds between half an inch and an inch. I paint wet on wet, let the paper dry, then do some glazing. Still working on that.</p>
+        <p>If nothing else, it's 30 minutes of zen.</p>
+        <p>Hope you enjoy <a class="inline" href="/paintings/">the paintings</a>. Feel free to use anything in my <a class="inline" href="/reference-photos/">reference library</a> for your own work. I'll try to keep it updated.</p>
+        <p>If you have suggestions for what I should paint next, <a class="inline" href="mailto:{EMAIL}?subject=Something%20to%20paint">let me know</a>. Just as long as it's clouds and mountains. :)</p>
       </div>
       <aside>
         <img class="portrait" src="{IMG['portrait']}" width="240" height="240" alt="Mark, watercolor painter in Palm Springs, in front of an Audubon bird print">
