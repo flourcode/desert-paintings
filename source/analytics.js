@@ -39,6 +39,8 @@
       });
       return;
     }
+    var v = t.closest && t.closest("button[data-values]");
+    if (v) { window.gtag("event", "value_view", { mode: v.getAttribute("data-values"), page_path: location.pathname }); return; }
     var f = t.closest && t.closest("[data-filter]");
     if (f) { window.gtag("event", "filter_paintings", { filter: f.getAttribute("data-filter") }); return; }
     var a = t.closest && t.closest("a[href]");

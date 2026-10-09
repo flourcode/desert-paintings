@@ -126,7 +126,7 @@ def build_images():
 def img_tag(p, eager=False, sizes="(max-width: 560px) 46vw, (max-width: 900px) 46vw, 30vw"):
     srcset = ", ".join(f"{u} {w}w" for u, w in p["srcset"])
     load_attr = 'fetchpriority="high"' if eager else 'loading="lazy"'
-    return (f'<img class="art {p["orient"]}" src="{p["img"]}" srcset="{srcset}" sizes="{sizes}" '
+    return (f'<img class="art tonal {p["orient"]}" src="{p["img"]}" srcset="{srcset}" sizes="{sizes}" '
             f'width="{p["iw"]}" height="{p["ih"]}" alt="{e(p["alt"])}, {e(p["size"])} original by Mark" '
             f'{load_attr} decoding="async">')
 
@@ -225,6 +225,7 @@ def page(path, title, description, body, nav="", og_image=None, og_type="website
     </div>
   </footer>
 </div>
+{VALUE_FILTERS}
 </body>
 </html>
 """
@@ -285,6 +286,18 @@ FAQ = [
     ("Can I paint from your photos?", "Yes. The reference photos page has free photos of Palm Springs skies, mountains, plants and wildlife, dedicated to the public domain (CC0). Download them and use them for anything; credit is appreciated but not required."),
 ]
 
+VALUE_FILTERS = """<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="values3" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="1.6"/><feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncR type="discrete" tableValues="0.14 0.52 0.93"/><feFuncG type="discrete" tableValues="0.14 0.52 0.93"/><feFuncB type="discrete" tableValues="0.14 0.52 0.93"/></feComponentTransfer></filter>
+  <filter id="values5" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="1.2"/><feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncR type="discrete" tableValues="0.1 0.32 0.54 0.76 0.95"/><feFuncG type="discrete" tableValues="0.1 0.32 0.54 0.76 0.95"/><feFuncB type="discrete" tableValues="0.1 0.32 0.54 0.76 0.95"/></feComponentTransfer></filter>
+</svg>"""
+
+def value_switch(scope):
+    modes = [("color", "Color"), ("gray", "Grayscale"), ("v3", "3 values"), ("v5", "5 values")]
+    btns = "".join(f'<button type="button" data-values="{k}" aria-pressed="{"true" if k == "color" else "false"}">{l}</button>' for k, l in modes)
+    return f'<div class="values" role="group" aria-label="Tonal value view for {scope}"><span class="values-label">View</span>{btns}</div>'
+
 def size_text(kb):
     return f"{kb / 1024:.1f} MB" if kb >= 1000 else f"{kb} KB"
 
@@ -299,7 +312,7 @@ def share_links(url, title, media, kind, item):
 def ref_html(p):
     refs = [ph for ph in PHOTOS if ph.get("painting") == p["slug"]]
     return "".join(f"""
-        <figure class="ref"><a href="/reference-photos/#{ph['slug']}"><img src="{ph['thumb']}" width="{ph['tw']}" height="{ph['th']}" alt="Reference photo: {e(ph['alt'])}" loading="lazy" decoding="async"></a>
+        <figure class="ref"><a href="/reference-photos/#{ph['slug']}"><img class="tonal" src="{ph['thumb']}" width="{ph['tw']}" height="{ph['th']}" alt="Reference photo: {e(ph['alt'])}" loading="lazy" decoding="async"></a>
           <figcaption><span class="label muted">Reference photo</span> <a href="/reference-photos/#{ph['slug']}">{e(ph['title'])}</a> · free to download</figcaption></figure>""" for ph in refs)
 
 def build_pages():
@@ -338,7 +351,8 @@ def build_pages():
         nl = (f'<a class="next" href="{nxt["url"]}"><span class="label muted">Next →</span><span class="t">{e(nxt["title"])}</span></a>' if nxt
               else '<a class="next" href="/paintings/"><span class="label muted">Index →</span><span class="t">All paintings</span></a>')
         body = f"""    <article class="grid detail">
-      <div class="detail-img"><div class="main">{img_tag(p, eager=True, sizes="(max-width: 900px) 92vw, 55vw")}</div>{ref_html(p)}</div>
+      <div class="detail-img"><div class="main">{img_tag(p, eager=True, sizes="(max-width: 900px) 92vw, 55vw")}</div>
+        {value_switch("this painting")}{ref_html(p)}</div>
       <div class="detail-info">
         <span class="label">Desert Painting No. {pad(p['no'])}</span>
         <h1>{e(p['title'])}</h1>
@@ -373,7 +387,7 @@ def build_pages():
         place = f'<span class="small">{e(ph["place"])}</span>' if ph["place"] else ""
         used_html = f'<a class="small used" href="{used["url"]}">Painted as {e(used["title"])} →</a>' if used else ""
         return f"""        <figure class="card photo" id="{ph['slug']}">
-          <a class="frame" href="{ph['full']}" aria-label="Open full-size photo: {e(ph['title'])}"><img class="art {ph['orient']}" src="{ph['thumb']}" width="{ph['tw']}" height="{ph['th']}" alt="{e(ph['alt'])}" loading="lazy" decoding="async"></a>
+          <a class="frame" href="{ph['full']}" aria-label="Open full-size photo: {e(ph['title'])}"><img class="art tonal {ph['orient']}" src="{ph['thumb']}" width="{ph['tw']}" height="{ph['th']}" alt="{e(ph['alt'])}" loading="lazy" decoding="async"></a>
           <figcaption class="cap">
             <span class="title">{e(ph['title'])}</span>
             {place}
@@ -396,6 +410,7 @@ def build_pages():
       <p>Photos I've taken around Palm Springs, mostly for painting. Some became paintings, most are still waiting. Download any of them and use them for anything. Credit is appreciated but not required.</p>
       <p class="license"><a class="arrow-link" href="{CC0}" target="_blank" rel="license noopener">CC0 · Public domain</a></p>
       <nav class="jump" aria-label="Photo sections">{jump}</nav>
+      <div class="values-intro">{value_switch("all photos")}<p class="values-note">See each photo as light and dark only. A 3- or 5-value study is a quick way to plan a painting before reaching for color.</p></div>
     </section>
 {chr(10).join(secs)}"""
     photo_nodes = [{"@type": "ImageObject", "contentUrl": f"{SITE}{ph['full']}", "thumbnailUrl": f"{SITE}{ph['thumb']}", "name": ph["title"],

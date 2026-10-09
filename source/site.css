@@ -276,3 +276,22 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .card.photo .actions { gap: 0 10px; }
   .card.photo .actions .sep { display: none; }
 }
+
+/* Tonal value views */
+.values { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin-top: 18px; }
+.values-label { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.values button { font: inherit; font-size: 13px; font-weight: 500; color: var(--muted); background: none; border: 0; padding: 0 0 2px;
+  border-bottom: 1px solid transparent; cursor: pointer; }
+.values button:hover { color: var(--fg); }
+.values button[aria-pressed="true"] { color: var(--fg); border-bottom-color: var(--fg); }
+.detail-img .values { justify-content: center; }
+.values-intro { margin-top: 26px; padding-top: 14px; border-top: 1px solid var(--rule); max-width: 62ch; }
+.values-intro .values { margin-top: 0; }
+.values-note { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
+html[data-values="gray"] img.tonal { filter: grayscale(1); }
+html[data-values="v3"] img.tonal { filter: url(#values3); }
+html[data-values="v5"] img.tonal { filter: url(#values5); }
+@media (max-width: 560px) {
+  .values { gap: 0 14px; }
+  .values button { padding: 10px 0 2px; }
+}

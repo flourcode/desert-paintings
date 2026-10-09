@@ -16,6 +16,27 @@
       if (count) count.textContent = "Index · " + shown + (shown === 1 ? " painting" : " paintings");
     });
   }
+  // Tonal value views: color, grayscale, 3 or 5 values. Remembered between pages.
+  var setValues = function (mode) {
+    if (mode === "color") document.documentElement.removeAttribute("data-values");
+    else document.documentElement.setAttribute("data-values", mode);
+    document.querySelectorAll("[data-values]").forEach(function (b) {
+      if (b.tagName === "BUTTON") b.setAttribute("aria-pressed", b.getAttribute("data-values") === mode ? "true" : "false");
+    });
+  };
+  if (document.querySelector("button[data-values]")) {
+    var saved = "color";
+    try { saved = localStorage.getItem("dp-values") || "color"; } catch (err) {}
+    setValues(saved);
+  }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest("button[data-values]");
+    if (!b) return;
+    var mode = b.getAttribute("data-values");
+    setValues(mode);
+    try { localStorage.setItem("dp-values", mode); } catch (err) {}
+  });
+
   // Share: the phone's share sheet where available, otherwise copy the link
   document.addEventListener("click", function (e) {
     var b = e.target.closest && e.target.closest("[data-share]");
