@@ -309,8 +309,7 @@ def build_pages():
       <div class="hero-text">
         <h1>Desert Paintings</h1>
         <div>
-          <p class="lede">{TAGLINE}</p>
-          <p class="sub">Mountains, clouds, and the occasional roadrunner.</p>
+          <p class="lede">Clouds, mountains, and the occasional roadrunner.</p>
         </div>
       </div>
       <figure class="hero-fig">
