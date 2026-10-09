@@ -228,7 +228,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .photo-sec .sect-head h2 { margin: 0; }
 .index.photos { padding-bottom: 72px; }
 .card.photo { margin: 0; }
-.card.photo .frame { display: block; }
 .card.photo img.art { outline: 0; }
 .card.photo .used { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--rule); }
 .card.photo .dl { margin-top: 8px; justify-self: start; font-size: 13px; font-weight: 600; border-bottom: 1px solid var(--fg); padding-bottom: 1px; }
@@ -246,7 +245,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   nav.primary a { padding: 12px 6px; font-size: 13.5px; }
   .wordmark { font-size: 12px; letter-spacing: .08em; }
 }
-.card.photo .frame { position: relative; aspect-ratio: 5 / 4; border-top: 1px solid var(--rule); }
+.card.photo .frame { display: block; position: relative; aspect-ratio: 5 / 4; border-top: 1px solid var(--rule); }
 .card.photo .frame img.art { position: absolute; inset: 6% 0; width: 100%; height: 88%; max-width: none; max-height: none; margin: 0; object-fit: contain; }
 .ref figcaption { display: block; line-height: 1.5; }
 .ref figcaption .label { margin-right: 6px; }
