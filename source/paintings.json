@@ -1,5 +1,5 @@
 {
-  "_how_to": "Paintings are numbered in the order listed here (oldest first). Each one needs an image at source/paintings/<slug>.jpg. 'grid' is the order on the Paintings page; 'home' is the order on the home page (the featured painting is shown large at the top).",
+  "_how_to": "Paintings are numbered in the order listed here (oldest first). Each one needs an image at source/paintings/<slug>.jpg. 'grid' is the order on the Paintings page; 'home' is the order on the home page (the featured painting is shown large at the top). Optional 'stages' shows progress photos on a painting's page: each entry names an image in source/stages/ (without .jpg) and a label; 'stages_note' is the caption.",
   "featured": "roadrunner-crossing",
   "grid": [
     "roadrunner-crossing",
@@ -192,7 +192,18 @@
       "alt": "Ink and watercolor of a tall weathered watchtower rising from rocks against a blue sky with ribbons of white cloud",
       "available": true,
       "note": "",
-      "video": ""
+      "video": "",
+      "stages": [
+        {
+          "image": "watchtower-first-pass",
+          "label": "First pass"
+        },
+        {
+          "image": "watchtower-finished",
+          "label": "Finished"
+        }
+      ],
+      "stages_note": "Left is after the first washes. Right is after a few rounds of glazing, mostly pushing the darks."
     },
     {
       "slug": "rain-rain",

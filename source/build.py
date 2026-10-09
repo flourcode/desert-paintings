@@ -110,6 +110,10 @@ def build_images():
             p["srcset"].append((url, c.size[0]))
             if suffix == "":
                 p["img"], p["iw"], p["ih"], p["img_plain"] = url, c.size[0], c.size[1], f"/images/{p['file']}.jpg"
+        for st in p.get("stages", []):
+            sim = src_image("stages", st["image"]); sim.thumbnail((900, 900), Image.LANCZOS)
+            st["url"] = save(sim, f"images/stages/{st['image']}.jpg", quality=84, optimize=True, progressive=True)
+            st["w"], st["h"] = sim.size
         og = Image.new("RGB", (1200, 630), (250, 249, 246))
         c = im.copy(); c.thumbnail((1080, 560), Image.LANCZOS)
         og.paste(c, ((1200 - c.width) // 2, (630 - c.height) // 2))
@@ -309,6 +313,17 @@ def share_links(url, title, media, kind, item):
             f'<span class="sep" aria-hidden="true">·</span>'
             f'<a class="share-btn" href="{e(pin)}" target="_blank" rel="noopener" data-pin {data}>Pin</a>')
 
+def stages_html(p):
+    st = p.get("stages") or []
+    if not st:
+        return ""
+    figs = "".join(f"""
+          <figure><img class="tonal" src="{x['url']}" width="{x['w']}" height="{x['h']}" alt="{e(p['title'])}, {e(x['label']).lower()}" loading="lazy" decoding="async"><figcaption class="label muted">{e(x['label'])}</figcaption></figure>""" for x in st)
+    note = f'<p class="stages-note">{e(p["stages_note"])}</p>' if p.get("stages_note") else ""
+    return f"""
+        <section class="stages" aria-label="How it was painted"><div class="stages-row">{figs}
+        </div>{note}</section>"""
+
 def ref_html(p):
     refs = [ph for ph in PHOTOS if ph.get("painting") == p["slug"]]
     return "".join(f"""
@@ -352,7 +367,7 @@ def build_pages():
               else '<a class="next" href="/paintings/"><span class="label muted">Index →</span><span class="t">All paintings</span></a>')
         body = f"""    <article class="grid detail">
       <div class="detail-img"><div class="main">{img_tag(p, eager=True, sizes="(max-width: 900px) 92vw, 55vw")}</div>
-        {value_switch("this painting")}{ref_html(p)}</div>
+        {value_switch("this painting")}{stages_html(p)}{ref_html(p)}</div>
       <div class="detail-info">
         <span class="label">Desert Painting No. {pad(p['no'])}</span>
         <h1>{e(p['title'])}</h1>

@@ -295,3 +295,11 @@ html[data-values="v5"] img.tonal { filter: url(#values5); }
   .values { gap: 0 14px; }
   .values button { padding: 10px 0 2px; }
 }
+
+/* Painting stages */
+.stages { margin: 40px auto 0; max-width: 560px; border-top: 1px solid var(--rule); padding-top: 14px; }
+.stages-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--col-gap); }
+.stages figure { margin: 0; }
+.stages img { display: block; width: 100%; height: auto; aspect-ratio: 5 / 8; object-fit: contain; object-position: center bottom; }
+.stages figcaption { margin-top: 8px; }
+.stages-note { margin: 12px 0 0; font-size: 14px; color: var(--muted); max-width: 52ch; }
