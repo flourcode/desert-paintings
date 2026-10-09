@@ -17,7 +17,7 @@ EMAIL = "mark.flournoy@gmail.com"
 CHANNEL = "https://www.youtube.com/@desertpaintings"
 TODAY = date.today().isoformat()
 SITE_NAME = "Desert Paintings"
-TAGLINE = "Small watercolors from Palm Springs and the surrounding desert."
+TAGLINE = "Watercolors from Palm Springs and the surrounding desert."
 
 def load(name):
     with open(os.path.join(ROOT, name), encoding="utf-8") as f:
@@ -310,7 +310,7 @@ def build_pages():
         <h1>Desert Paintings</h1>
         <div>
           <p class="lede">{TAGLINE}</p>
-          <p class="sub">Mountains, clouds, roadrunners. Whatever catches my eye.</p>
+          <p class="sub">Mountains, clouds, and the occasional roadrunner.</p>
         </div>
       </div>
       <figure class="hero-fig">
