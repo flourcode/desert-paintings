@@ -1,5 +1,5 @@
 {
-  "_how_to": "Each photo needs an image at source/photos/<slug>.jpg. 'note' is an optional line about where or why you took it (leave it empty to hide it). 'painting' links a photo to the painting it inspired (use the painting's slug).",
+  "_how_to": "Each photo needs an image at source/photos/<slug>.jpg. 'note' is an optional line about where or why you took it (leave it empty to hide it). 'painting' links a photo to the painting it inspired (use the painting's slug). Set \"reuse\": false for a photo of someone else's artwork: it is shown without Download or Pin and is left out of the free-to-use license.",
   "sections": [
     {
       "key": "sunsets",
@@ -16,6 +16,10 @@
     {
       "key": "wildlife",
       "label": "Wildlife"
+    },
+    {
+      "key": "odds",
+      "label": "Odds and ends"
     }
   ],
   "og_photo": "storm-light-over-san-jacinto",
@@ -156,6 +160,47 @@
       "sec": "wildlife",
       "alt": "A grey-brown spiny lizard flattened against a textured stucco wall",
       "note": ""
+    },
+    {
+      "slug": "big-sky-over-the-windmills",
+      "title": "Big sky over the windmills",
+      "place": "San Gorgonio Pass",
+      "sec": "clouds",
+      "note": "",
+      "alt": "A huge blue sky full of white clouds above rows of white wind turbines and the San Jacinto Mountains"
+    },
+    {
+      "slug": "morning-coyote",
+      "title": "Morning coyote",
+      "place": "Palm Springs",
+      "sec": "wildlife",
+      "note": "",
+      "alt": "A coyote trotting along a curb past bougainvillea and an olive tree in morning light"
+    },
+    {
+      "slug": "pepper",
+      "title": "Pepper",
+      "place": null,
+      "sec": "odds",
+      "note": "",
+      "alt": "Close-up of a grey tabby cat with bright green eyes"
+    },
+    {
+      "slug": "a-delicious-margarita",
+      "title": "A delicious margarita",
+      "place": null,
+      "sec": "odds",
+      "note": "",
+      "alt": "A margarita with a salted rim, lime and lemon slices and an orange marigold flower"
+    },
+    {
+      "slug": "sea-captain-someday",
+      "title": "Sea captain, someday",
+      "place": null,
+      "sec": "odds",
+      "note": "Not mine. Found it in a shop, and someday I'd like to try painting something like it.",
+      "reuse": false,
+      "alt": "A framed oil painting by another artist of a bearded sea captain with a pipe in the clouds above a tall ship at sea"
     }
   ]
 }

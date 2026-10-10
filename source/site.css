@@ -304,3 +304,4 @@ html[data-values="v5"] img.tonal { filter: url(#values5); }
 .stages figcaption { margin-top: 8px; }
 .stages-note { margin: 12px 0 0; font-size: 14px; color: var(--muted); max-width: 52ch; }
 .card.photo .note { color: var(--fg); font-style: normal; margin-top: 2px; }
+.card.photo .notfree { margin-top: 8px; font-style: italic; }

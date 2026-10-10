@@ -302,6 +302,13 @@ def value_switch(scope):
     btns = "".join(f'<button type="button" data-values="{k}" aria-pressed="{"true" if k == "color" else "false"}">{l}</button>' for k, l in modes)
     return f'<div class="values" role="group" aria-label="Tonal value view for {scope}"><span class="values-label">View</span>{btns}</div>'
 
+def photo_actions(ph):
+    if ph.get("reuse") is False:
+        return '<span class="small notfree">Another artist\'s painting. Shown for inspiration, not free to reuse.</span>'
+    dl = f'<a class="dl" href="{ph["full"]}" download>Download <span class="meta">{ph["w"]}×{ph["h"]} · {size_text(ph["kb"])}</span></a>'
+    sh = share_links(SITE + "/reference-photos/#" + ph["slug"], ph["title"] + ", free reference photo · Desert Paintings", SITE + ph["full_plain"], "photo", ph["slug"])
+    return f'<span class="actions">{dl}\n            {sh}</span>'
+
 def size_text(kb):
     return f"{kb / 1024:.1f} MB" if kb >= 1000 else f"{kb} KB"
 
@@ -403,13 +410,12 @@ def build_pages():
         place += f'<span class="small note">{e(ph["note"])}</span>' if ph.get("note") else ""
         used_html = f'<a class="small used" href="{used["url"]}">Painted as {e(used["title"])} →</a>' if used else ""
         return f"""        <figure class="card photo" id="{ph['slug']}">
-          <a class="frame" href="{ph['full']}" aria-label="Open full-size photo: {e(ph['title'])}"><img class="art tonal {ph['orient']}" src="{ph['thumb']}" width="{ph['tw']}" height="{ph['th']}" alt="{e(ph['alt'])}" loading="lazy" decoding="async"></a>
+          <a class="frame" href="{ph['full'] if ph.get('reuse') is not False else '#' + ph['slug']}" aria-label="Open full-size photo: {e(ph['title'])}"><img class="art tonal {ph['orient']}" src="{ph['thumb']}" width="{ph['tw']}" height="{ph['th']}" alt="{e(ph['alt'])}" loading="lazy" decoding="async"></a>
           <figcaption class="cap">
             <span class="title">{e(ph['title'])}</span>
             {place}
             {used_html}
-            <span class="actions"><a class="dl" href="{ph['full']}" download>Download <span class="meta">{ph['w']}×{ph['h']} · {size_text(ph['kb'])}</span></a>
-            {share_links(SITE + '/reference-photos/#' + ph['slug'], ph['title'] + ', free reference photo · Desert Paintings', SITE + ph['full_plain'], 'photo', ph['slug'])}</span>
+            {photo_actions(ph)}
           </figcaption>
         </figure>"""
     secs = []
@@ -423,7 +429,7 @@ def build_pages():
     </section>""")
     jump = " ".join(f'<a href="#{k}">{e(l)}</a>' for k, l in SECTIONS)
     body = f"""    <section class="page-head"><span class="label muted">Free reference photos</span><h1>Field Notes</h1>
-      <p>Things I noticed around the desert. Some became paintings, most are still waiting. Every photo is free to download and paint from, or use for anything else. Credit is appreciated but not required.</p>
+      <p>Things I noticed around the desert. Some became paintings, most are still waiting. My photos are free to download and paint from, or use for anything else. Credit is appreciated but not required.</p>
       <p class="license"><a class="arrow-link" href="{CC0}" target="_blank" rel="license noopener">CC0 · Public domain</a></p>
       <nav class="jump" aria-label="Photo sections">{jump}</nav>
       <div class="values-intro">{value_switch("all photos")}<p class="values-note">See each photo as light and dark only. A 3- or 5-value study is a quick way to plan a painting before reaching for color.</p></div>
@@ -433,7 +439,7 @@ def build_pages():
                     "description": ph["alt"], "width": ph["w"], "height": ph["h"], "license": CC0,
                     "acquireLicensePage": f"{SITE}/reference-photos/", "creditText": "Mark, Desert Paintings",
                     "copyrightNotice": "Dedicated to the public domain (CC0)", "creator": {"@id": f"{SITE}/#mark"},
-                    **({"contentLocation": {"@type": "Place", "name": ph["place"] + ", California"}} if ph["place"] else {})} for ph in PHOTOS]
+                    **({"contentLocation": {"@type": "Place", "name": ph["place"] + ", California"}} if ph["place"] else {})} for ph in PHOTOS if ph.get("reuse") is not False]
     write("/reference-photos/", page("/reference-photos/", "Field Notes · Free Reference Photos from Palm Springs · Desert Paintings",
                                      f"Field Notes: {len(PHOTOS)} free CC0 reference photos for watercolor painters: Palm Springs sunsets, clouds, Mount San Jacinto, palms, Joshua trees, cactus and roadrunners. Download full size, no sign-up.",
                                      body, nav="photos", og_image=f"{SITE}{IMG['og-photos']}", alt_og="Palm Springs sunset reference photo",
@@ -529,7 +535,7 @@ def build_files():
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">']
     for u, pr, p in urls:
         out.append(f"  <url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod><priority>{pr}</priority>" +
-                   ("".join(f"<image:image><image:loc>{SITE}{ph['full']}</image:loc></image:image>" for ph in PHOTOS) if p == "photos"
+                   ("".join(f"<image:image><image:loc>{SITE}{ph['full']}</image:loc></image:image>" for ph in PHOTOS if ph.get("reuse") is not False) if p == "photos"
                     else f"<image:image><image:loc>{SITE}/images/{p['file']}.jpg</image:loc></image:image>" if p else "") + "</url>")
     out.append("</urlset>")
     open(f"{OUT}/sitemap.xml", "w").write("\n".join(out) + "\n")
