@@ -26,7 +26,7 @@ customHttp.yml      caching and security settings
 3. On GitHub, open `source/paintings`, click **Add file → Upload files**, drop in the new file, and click **Commit changes**. GitHub replaces the old file because the name matches.
 4. Wait about two minutes. The site updates, and visitors see the new image right away.
 
-You can replace several at once. A reference photo works the same way, in `source/photos`.
+You can replace several at once. A Field Notes photo works the same way, in `source/photos`.
 
 | Painting | File in source/paintings |
 |---|---|
@@ -45,7 +45,7 @@ You can replace several at once. A reference photo works the same way, in `sourc
 
 ## Small text changes
 
-Titles, places, dates, notes and "Sold" live in `source/paintings.json`. On GitHub, open the file, click the pencil, edit the text between the quotes, and commit. Keep the quotes and commas as they are. Set `"available": false` to show a painting as Sold. Add a sentence in `"note"` and it appears on that painting's page.
+Titles, places, dates, notes and "Sold" live in `source/paintings.json`. Field Notes photos live in `source/photos.json`; fill in a photo's `"note"` with a line about where or why you took it, and it appears under that photo. On GitHub, open the file, click the pencil, edit the text between the quotes, and commit. Keep the quotes and commas as they are. Set `"available": false` to show a painting as Sold. Add a sentence in `"note"` and it appears on that painting's page.
 
 ## Adding new paintings
 

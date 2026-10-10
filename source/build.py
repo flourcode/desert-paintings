@@ -213,7 +213,7 @@ def page(path, title, description, body, nav="", og_image=None, og_type="website
       <a class="wordmark" href="/">DESERT PAINTINGS</a>
       <nav class="primary" aria-label="Primary">
         {navlink("paintings", "/paintings/", "Paintings")}
-        {navlink("photos", "/reference-photos/", "Reference")}
+        {navlink("photos", "/reference-photos/", "Field Notes")}
         {navlink("about", "/about/", "About")}
       </nav>
     </div>
@@ -287,7 +287,7 @@ VIDEOS_WATCHED = [
 FAQ = [
     ("Are the original paintings for sale?", f"Yes. Each painting's page says whether the original is available. Write to {EMAIL} to ask about one."),
     ("How are you learning watercolor?", "From books and videos: The Laws Guide to Nature Drawing and Journaling by John Muir Laws (Heyday), Bob Ross, and beginner lessons on YouTube, including videos with Rajiv Surendra and his teacher Marcelo Daldoce."),
-    ("Can I paint from your photos?", "Yes. The reference photos page has free photos of Palm Springs skies, mountains, plants and wildlife, dedicated to the public domain (CC0). Download them and use them for anything; credit is appreciated but not required."),
+    ("Can I paint from your photos?", "Yes. The Field Notes page has free reference photos of Palm Springs skies, mountains, plants and wildlife, dedicated to the public domain (CC0). Download them and use them for anything; credit is appreciated but not required."),
 ]
 
 VALUE_FILTERS = """<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -328,7 +328,7 @@ def ref_html(p):
     refs = [ph for ph in PHOTOS if ph.get("painting") == p["slug"]]
     return "".join(f"""
         <figure class="ref"><a href="/reference-photos/#{ph['slug']}"><img class="tonal" src="{ph['thumb']}" width="{ph['tw']}" height="{ph['th']}" alt="Reference photo: {e(ph['alt'])}" loading="lazy" decoding="async"></a>
-          <figcaption><span class="label muted">Reference photo</span> <a href="/reference-photos/#{ph['slug']}">{e(ph['title'])}</a> · free to download</figcaption></figure>""" for ph in refs)
+          <figcaption><span class="label muted">From Field Notes</span> <a href="/reference-photos/#{ph['slug']}">{e(ph['title'])}</a> · the reference photo, free to download</figcaption></figure>""" for ph in refs)
 
 def build_pages():
     f = FEATURED
@@ -400,6 +400,7 @@ def build_pages():
     def photo_card(ph):
         used = by_slug.get(ph.get("painting"))
         place = f'<span class="small">{e(ph["place"])}</span>' if ph["place"] else ""
+        place += f'<span class="small note">{e(ph["note"])}</span>' if ph.get("note") else ""
         used_html = f'<a class="small used" href="{used["url"]}">Painted as {e(used["title"])} →</a>' if used else ""
         return f"""        <figure class="card photo" id="{ph['slug']}">
           <a class="frame" href="{ph['full']}" aria-label="Open full-size photo: {e(ph['title'])}"><img class="art tonal {ph['orient']}" src="{ph['thumb']}" width="{ph['tw']}" height="{ph['th']}" alt="{e(ph['alt'])}" loading="lazy" decoding="async"></a>
@@ -421,8 +422,8 @@ def build_pages():
       </div>
     </section>""")
     jump = " ".join(f'<a href="#{k}">{e(l)}</a>' for k, l in SECTIONS)
-    body = f"""    <section class="page-head"><span class="label muted">Reference photos</span><h1>Free to paint from</h1>
-      <p>Photos I've taken around Palm Springs, mostly for painting. Some became paintings, most are still waiting. Download any of them and use them for anything. Credit is appreciated but not required.</p>
+    body = f"""    <section class="page-head"><span class="label muted">Free reference photos</span><h1>Field Notes</h1>
+      <p>Things I noticed around the desert. Some became paintings, most are still waiting. Every photo is free to download and paint from, or use for anything else. Credit is appreciated but not required.</p>
       <p class="license"><a class="arrow-link" href="{CC0}" target="_blank" rel="license noopener">CC0 · Public domain</a></p>
       <nav class="jump" aria-label="Photo sections">{jump}</nav>
       <div class="values-intro">{value_switch("all photos")}<p class="values-note">See each photo as light and dark only. A 3- or 5-value study is a quick way to plan a painting before reaching for color.</p></div>
@@ -433,12 +434,12 @@ def build_pages():
                     "acquireLicensePage": f"{SITE}/reference-photos/", "creditText": "Mark, Desert Paintings",
                     "copyrightNotice": "Dedicated to the public domain (CC0)", "creator": {"@id": f"{SITE}/#mark"},
                     **({"contentLocation": {"@type": "Place", "name": ph["place"] + ", California"}} if ph["place"] else {})} for ph in PHOTOS]
-    write("/reference-photos/", page("/reference-photos/", "Free Reference Photos for Painting · Palm Springs & Desert · Desert Paintings",
-                                     f"{len(PHOTOS)} free CC0 reference photos for watercolor painters: Palm Springs sunsets, clouds, Mount San Jacinto, palms, Joshua trees, cactus and roadrunners. Download full size, no sign-up.",
+    write("/reference-photos/", page("/reference-photos/", "Field Notes · Free Reference Photos from Palm Springs · Desert Paintings",
+                                     f"Field Notes: {len(PHOTOS)} free CC0 reference photos for watercolor painters: Palm Springs sunsets, clouds, Mount San Jacinto, palms, Joshua trees, cactus and roadrunners. Download full size, no sign-up.",
                                      body, nav="photos", og_image=f"{SITE}{IMG['og-photos']}", alt_og="Palm Springs sunset reference photo",
-                                     schema=ld({"@type": "CollectionPage", "@id": f"{SITE}/reference-photos/", "url": f"{SITE}/reference-photos/", "name": "Free reference photos",
+                                     schema=ld({"@type": "CollectionPage", "@id": f"{SITE}/reference-photos/", "url": f"{SITE}/reference-photos/", "name": "Field Notes: free reference photos",
                                                 "isPartOf": {"@id": f"{SITE}/#website"}, "license": CC0, "hasPart": photo_nodes},
-                                               crumbs([("Home", "/"), ("Reference photos", "/reference-photos/")]))))
+                                               crumbs([("Home", "/"), ("Field Notes", "/reference-photos/")]))))
     # videos
     body = f"""    <section class="page-head"><span class="label muted">Videos</span><h1>Painting on camera</h1>
       <p>Videos of these paintings, start to finish, are coming to YouTube.</p></section>
@@ -560,7 +561,7 @@ Sitemap: {SITE}/sitemap.xml
     lines = [f"# {SITE_NAME}", "", f"> {TAGLINE} Original 4×6 and 5×7 watercolors by Mark, a painter in Palm Springs, California. All originals are currently available; inquiries go to {EMAIL}.", "",
              "## Pages", "", f"- [Home]({SITE}/): featured painting and the full index",
              f"- [Paintings]({SITE}/paintings/): all paintings, numbered in the order they were made",
-             f"- [Reference photos]({SITE}/reference-photos/): free CC0 photos of Palm Springs skies, mountains, plants and wildlife for painters to download and use",
+             f"- [Field Notes]({SITE}/reference-photos/): free CC0 reference photos of Palm Springs skies, mountains, plants and wildlife for painters to download and use",
              f"- [About]({SITE}/about/): about Mark, contact, and common questions",
              "", "## Paintings", ""]
     for p in sorted(P, key=lambda p: p["no"]):
